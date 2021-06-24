@@ -21,15 +21,12 @@ where color = 'y'
 5. Найдите номер модели, скорость и размер жесткого диска ПК, имеющих 12x или 24x CD и цену менее 600 дол.
 Select model, speed, hd from pc
 where (cd ='12x' or cd = '24x') and price < 600
-
-
 6. Для каждого производителя, выпускающего ПК-блокноты c объёмом жесткого диска не менее 10 Гбайт, найти скорости таких ПК-блокнотов. Вывод: производитель, скорость.
 Select distinct p.maker, l.speed 
 from laptop as l
 join product as p 
 on p.model = l.model
 where l.hd  >= 10
-
 7. Найдите номера моделей и цены всех имеющихся в продаже продуктов (любого типа) производителя B (латинская буква).
 SELECT DISTINCT P.MODEL, PC.PRICE FROM PRODUCT AS P
 JOIN PC 
@@ -50,7 +47,6 @@ and maker NOT IN(SELECT maker FROM product WHERE type='laptop')
 SELECT DISTINCT P.MAKER FROM PRODUCT AS P 
 LEFT JOIN PC
 ON PC.MODEL = P.MODEL WHERE PC.SPEED >= 450
-
 10. Найдите модели принтеров, имеющих самую высокую цену. Вывести: model, price
 SELECT MODEL, PRICE FROM PRINTER
 WHERE PRICE = (SELECT MAX(PRICE)FROM PRINTER)
@@ -69,4 +65,33 @@ JOIN SHIPS AS S
 ON S.CLASS = C.CLASS WHERE NUMGUNS >= 10
 15. Найдите размеры жестких дисков, совпадающих у двух и более PC. Вывести: HD
 SELECT HD FROM PC GROUP BY HD HAVING COUNT(MODEL)>=2
-
+16.Найдите пары моделей PC, имеющих одинаковые скорость и RAM. В результате каждая пара указывается только один раз, т.е. (i,j), но не (j,i), Порядок вывода: модель с большим номером, модель с меньшим номером, скорость и RAM.
+SELECT DISTINCT p1.model, p2.model, p1.speed, p1.ram
+FROM pc p1, pc p2
+WHERE p1.speed = p2.speed AND p1.ram = p2.ram AND p1.model > p2.model
+17.Найдите модели ПК-блокнотов, скорость которых меньше скорости каждого из ПК.
+Вывести: type, model, speed
+SELECT DISTINCT TYPE, L.MODEL, SPEED 
+FROM LAPTOP AS L
+JOIN PRODUCT AS P
+ON P.MODEL = L.MODEL
+WHERE SPEED < ALL (SELECT SPEED FROM PC)
+18.Найдите производителей самых дешевых цветных принтеров. Вывести: maker, price
+SELECT DISTINCT PROD.MAKER,PRIN.PRICE 
+FROM PRODUCT AS PROD
+JOIN PRINTER AS PRIN ON PROD.MODEL = PRIN.MODEL 
+WHERE PRIN.PRICE = (SELECT MIN(PRICE) FROM PRINTER 
+WHERE COLOR = 'Y') AND PRIN.COLOR ='Y'
+19. Для каждого производителя, имеющего модели в таблице Laptop, найдите средний размер экрана выпускаемых им ПК-блокнотов.
+Вывести: maker, средний размер экрана.
+SELECT P.MAKER, AVG(SCREEN)
+FROM PRODUCT AS P
+JOIN LAPTOP AS L
+ON P.MODEL = L.MODEL
+GROUP BY MAKER
+20. Найдите производителей, выпускающих по меньшей мере три различных модели ПК. Вывести: Maker, число моделей ПК.
+SELECT MAKER, COUNT(MODEL) AS COUNT_MODEL
+FROM PRODUCT
+WHERE TYPE = 'PC'
+GROUP BY PRODUCT.MAKER
+HAVING COUNT (DISTINCT MODEL) >= 3
