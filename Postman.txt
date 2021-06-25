@@ -18,7 +18,9 @@
 }
 
 2. Найти пользователей, сответствуюших заданному параметру поиска: https://vk.com/dev/users.search 
+
 "GET" https://api.vk.com/method/users.search?q=АнтонЩетинин&access_token=482747380474ac386e664521a8a3a5230ad544950bd20fe4407125be8c2dbaeea2288b165ec0eb616bd47&v=5.131&count=3
+
 {
     "response": {
         "count": 162,
@@ -84,9 +86,9 @@
     ]
 }
 
-5. Возвращает список идентификаторов недавно добавленных друзей текущего пользователя.
+5. Возвращает список идентификаторов недавно добавленных друзей текущего пользователя: https://vk.com/dev/friends.getRecent
 
-"Get" https://api.vk.com/method/friends.getRecent?access_token=482747380474ac386e664521a8a3a5230ad544950bd20fe4407125be8c2dbaeea2288b165ec0eb616bd47&v=5.131
+"GET" https://api.vk.com/method/friends.getRecent?access_token=482747380474ac386e664521a8a3a5230ad544950bd20fe4407125be8c2dbaeea2288b165ec0eb616bd47&v=5.131
 
 {
     "response": [
@@ -110,3 +112,61 @@
         93272954
     ]
 }
+
+6. Возвращает список профилей пользователей, которые могут быть друзьями текущего пользователя. https://vk.com/dev/friends.getSuggestions 
+
+"GET" https://api.vk.com/method/friends.getSuggestions?access_token=482747380474ac386e664521a8a3a5230ad544950bd20fe4407125be8c2dbaeea2288b165ec0eb616bd47&v=5.131&count=3
+
+
+{
+    "response": {
+        "count": 390,
+        "items": [
+            {
+                "first_name": "Даниил",
+                "id": 158411007,
+                "last_name": "Тарасевич",
+                "can_access_closed": true,
+                "is_closed": false
+            },
+            {
+                "first_name": "Yegor",
+                "id": 544587172,
+                "last_name": "Zuikov",
+                "can_access_closed": true,
+                "is_closed": false
+            },
+            {
+                "first_name": "Nikita",
+                "id": 562176572,
+                "last_name": "Pinchuk",
+                "can_access_closed": false,
+                "is_closed": true
+            }
+        ]
+    }
+}
+
+7. Возвращает список полученных подарков пользователя.
+
+"GET" https://api.vk.com/method/gifts.get?access_token=482747380474ac386e664521a8a3a5230ad544950bd20fe4407125be8c2dbaeea2288b165ec0eb616bd47&v=5.131&count=1
+
+{
+    "response": {
+        "count": 18,
+        "items": [
+            {
+                "id": -1401878514,
+                "from_id": 470228320,
+                "message": "",
+                "date": 1620561108,
+                "gift": {
+                    "id": 711,
+                    "thumb_256": "https://vk.com/images/gift/711/256.jpg",
+                    "thumb_48": "https://vk.com/images/gift/711/48.png",
+                    "thumb_96": "https://vk.com/images/gift/711/96.png"
+                },
+                "privacy": 0
+            }
+        ]
+    }
