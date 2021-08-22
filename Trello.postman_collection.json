@@ -1,0 +1,430 @@
+{
+	"info": {
+		"_postman_id": "86ef664a-f066-4081-8a0d-c3f001fa7afc",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create a Board",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/1/boards/?key={{key}}&token={{token}}&name=API Task",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"1",
+						"boards",
+						""
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{key}}"
+						},
+						{
+							"key": "token",
+							"value": "{{token}}"
+						},
+						{
+							"key": "name",
+							"value": "API Task"
+						},
+						{
+							"key": "{{key}}{{token}}",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Labels on a Board",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/1/boards/{{ID Board API Task}}/labels?key={{key}}&token={{token}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"1",
+						"boards",
+						"{{ID Board API Task}}",
+						"labels"
+					],
+					"query": [
+						{
+							"key": "{{url}}",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "key",
+							"value": "{{key}}"
+						},
+						{
+							"key": "token",
+							"value": "{{token}}"
+						},
+						{
+							"key": "ID ",
+							"value": "{{ID Board API Task}}",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Lists on a Board",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/1/boards/{{ID Board API Task}}/lists?key={{key}}&token={{token}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"1",
+						"boards",
+						"{{ID Board API Task}}",
+						"lists"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{key}}"
+						},
+						{
+							"key": "token",
+							"value": "{{token}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a new Card",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/1/cards?key={{key}}&token={{token}}&idList={{ID To Do}}&name=Postman task",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"1",
+						"cards"
+					],
+					"query": [
+						{
+							"key": "{{url}}",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "key",
+							"value": "{{key}}"
+						},
+						{
+							"key": "token",
+							"value": "{{token}}"
+						},
+						{
+							"key": "idList",
+							"value": "{{ID To Do}}"
+						},
+						{
+							"key": "name",
+							"value": "Postman task"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a Checklist",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/1/checklists?key={{key}}&token={{token}}&idCard={{ID Card Postman Task}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"1",
+						"checklists"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{key}}"
+						},
+						{
+							"key": "token",
+							"value": "{{token}}"
+						},
+						{
+							"key": "idCard",
+							"value": "{{ID Card Postman Task}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Checkitem on Checklist",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/1/checklists/{{ID Checklist}}/checkItems?token={{token}}&key={{key}}&name=Create board&checked=true",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"1",
+						"checklists",
+						"{{ID Checklist}}",
+						"checkItems"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "{{token}}"
+						},
+						{
+							"key": "id",
+							"value": "{{ID Checklist}}",
+							"disabled": true
+						},
+						{
+							"key": "key",
+							"value": "{{key}}"
+						},
+						{
+							"key": "name",
+							"value": "Create board"
+						},
+						{
+							"key": "checked",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Checkitem from Checklist",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/1/checklists/{{ID Checklist}}/checkItems/611285d16b8f861f37d927e3?key={{key}}&token={{token}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"1",
+						"checklists",
+						"{{ID Checklist}}",
+						"checkItems",
+						"611285d16b8f861f37d927e3"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{key}}"
+						},
+						{
+							"key": "token",
+							"value": "{{token}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Move all Cards in List",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/1/lists/{{ID List To Do}}/moveAllCards?key={{key}}&token={{token}}&idBoard={{ID Board API Task}}&idList=611279eb70af2a297fc507f9",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"1",
+						"lists",
+						"{{ID List To Do}}",
+						"moveAllCards"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{key}}"
+						},
+						{
+							"key": "token",
+							"value": "{{token}}"
+						},
+						{
+							"key": "idBoard",
+							"value": "{{ID Board API Task}}"
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "idList",
+							"value": "611279eb70af2a297fc507f9"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a List",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "Create Checkitem in Doing",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/1/checklists/{{ID Checklist}}/checkItems?token={{token}}&checked=true&key={{key}}&name=Move card",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"1",
+						"checklists",
+						"{{ID Checklist}}",
+						"checkItems"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "{{token}}"
+						},
+						{
+							"key": "checked",
+							"value": "true"
+						},
+						{
+							"key": "key",
+							"value": "{{key}}"
+						},
+						{
+							"key": "name",
+							"value": "Move card"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Checkiteam on Checklist (Complete task)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/1/checklists/{{ID Checklist}}/checkItems?token={{token}}&checked=true&key={{key}}&name=Complete task",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"1",
+						"checklists",
+						"{{ID Checklist}}",
+						"checkItems"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "{{token}}"
+						},
+						{
+							"key": "checked",
+							"value": "true"
+						},
+						{
+							"key": "key",
+							"value": "{{key}}"
+						},
+						{
+							"key": "name",
+							"value": "Complete task"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Move all cards in list (Done)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/1/lists/{{ID List Doing}}/moveAllCards?key={{key}}&token={{token}}&idBoard={{ID Board API Task}}&idList=611279eb70af2a297fc507fa",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"1",
+						"lists",
+						"{{ID List Doing}}",
+						"moveAllCards"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{key}}"
+						},
+						{
+							"key": "token",
+							"value": "{{token}}"
+						},
+						{
+							"key": "idBoard",
+							"value": "{{ID Board API Task}}"
+						},
+						{
+							"key": "idList",
+							"value": "611279eb70af2a297fc507fa"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
